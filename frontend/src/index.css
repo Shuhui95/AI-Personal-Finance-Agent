@@ -1,0 +1,48 @@
+/* Apply border-box sizing to every element */
+* {
+  box-sizing: border-box;
+}
+
+/* Global page styles */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family:
+    Inter, Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  background-color: #f4f6f8;
+}
+
+/* Keep form elements using the same font as the page */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Global heading styles */
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* Global error message */
+.error-message {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+}
+
+/* Global loading message */
+.loading-message {
+  padding: 20px;
+  color: #6b7280;
+  text-align: center;
+}

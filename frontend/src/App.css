@@ -1,0 +1,90 @@
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.dashboard-heading h1 {
+  margin-bottom: 8px;
+  color: #111827;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.dashboard-heading p {
+  margin-bottom: 0;
+  color: #6b7280;
+  font-size: 17px;
+}
+
+.month-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 190px;
+}
+
+.month-selector label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.month-selector input {
+  width: 100%;
+  padding: 10px 12px;
+  color: #1f2937;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.month-selector input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.retry-button {
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+  .app-container {
+    padding: 24px 16px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .dashboard-heading h1 {
+    font-size: 28px;
+  }
+
+  .month-selector {
+    min-width: 0;
+  }
+}

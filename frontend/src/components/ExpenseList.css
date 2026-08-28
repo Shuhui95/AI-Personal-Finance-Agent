@@ -1,0 +1,156 @@
+/* Expense list card */
+.expense-list-section {
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+  
+  .expense-list-section h2 {
+    margin-bottom: 20px;
+    color: #111827;
+    font-size: 22px;
+  }
+  
+  /* Empty list message */
+  .empty-expense-message {
+    margin-bottom: 0;
+    padding: 24px;
+    color: #6b7280;
+    text-align: center;
+    background-color: #f9fafb;
+    border-radius: 8px;
+  }
+  
+  /* Allows horizontal scrolling on small screens */
+  .expense-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .expense-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+  }
+  
+  .expense-table th,
+  .expense-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .expense-table th {
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #f9fafb;
+  }
+  
+  .expense-table td {
+    color: #4b5563;
+  }
+  
+  .expense-table tbody tr {
+    transition: background-color 0.2s;
+  }
+  
+  .expense-table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .expense-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Keep the amount on one line */
+  .expense-amount {
+    color: #111827;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  /* Delete button */
+  .delete-expense-button {
+    padding: 7px 12px;
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #fee2e2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+  }
+  
+  /* Edit and Delete buttons container */
+.expense-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Edit button */
+  .edit-expense-button {
+    padding: 7px 12px;
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #dbeafe;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+  }
+  
+  .edit-expense-button:hover {
+    color: #ffffff;
+    background-color: #2563eb;
+  }
+
+  .delete-expense-button:hover {
+    color: #ffffff;
+    background-color: #dc2626;
+  }
+  
+  .expense-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .expense-list-header h2 {
+    margin-bottom: 0;
+  }
+  
+  .expense-count-badge {
+    padding: 5px 10px;
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #dbeafe;
+    border-radius: 999px;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #f3f4f6;
+    border-radius: 999px;
+  }
+
+  @media (max-width: 700px) {
+    .expense-list-section {
+      padding: 20px;
+    }
+  }
