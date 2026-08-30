@@ -1,90 +1,448 @@
-.app-container {
+#root {
+  min-height: 100vh;
+}
+
+
+/* ========================================
+   APP BASE
+======================================== */
+
+.app-shell {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 24px;
+  min-height: 100vh;
+
+  display: grid;
+
+  background:
+    radial-gradient(
+      circle at 65% 8%,
+      rgba(113, 91, 244, 0.06),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(93, 169, 242, 0.035),
+      transparent 28%
+    ),
+    #f8f9fc;
+
+  color: #25263a;
 }
 
-.dashboard-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 32px;
+
+/*
+ * Chat：
+ *
+ * Sidebar | Chat | Overview
+ */
+.chat-layout {
+  grid-template-columns:
+    280px
+    minmax(500px, 1fr)
+    350px;
 }
 
-.dashboard-heading h1 {
-  margin-bottom: 8px;
-  color: #111827;
-  font-size: 36px;
-  line-height: 1.2;
+
+/*
+ * Dashboard / Transactions：
+ *
+ * Sidebar | Main
+ */
+.content-layout {
+  grid-template-columns:
+    280px
+    minmax(0, 1fr);
 }
 
-.dashboard-heading p {
-  margin-bottom: 0;
-  color: #6b7280;
-  font-size: 17px;
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.main-content {
+  min-width: 0;
+  min-height: 100vh;
+  overflow: visible;
 }
 
-.month-selector {
+
+/* ========================================
+   RIGHT OVERVIEW COLUMN
+======================================== */
+
+.overview-column {
+  min-width: 0;
+  min-height: 100vh;
+}
+
+
+/* ========================================
+   FINANCE ERROR
+======================================== */
+
+.finance-error {
+  margin:
+    100px
+    20px;
+
+  padding: 22px;
+
+  border-radius: 15px;
+
+  border:
+    1px solid
+    #ffdada;
+
+  background:
+    rgba(
+      255,
+      250,
+      250,
+      0.95
+    );
+
+  color: #934b4b;
+
+  box-shadow:
+    0 7px 22px
+    rgba(
+      80,
+      45,
+      45,
+      0.05
+    );
+}
+
+
+.finance-error strong {
+  display: block;
+
+  font-size: 13px;
+
+  color: #813f3f;
+}
+
+
+.finance-error p {
+  margin:
+    7px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: #a46060;
+}
+
+
+.finance-error button {
+  margin-top: 13px;
+
+  border: none;
+
+  padding:
+    9px
+    15px;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c55ef,
+      #5039dd
+    );
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px
+    rgba(
+      86,
+      61,
+      219,
+      0.2
+    );
+
+  transition:
+    transform
+    0.2s ease,
+    box-shadow
+    0.2s ease;
+}
+
+
+.finance-error button:hover {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(
+      86,
+      61,
+      219,
+      0.26
+    );
+}
+
+
+/* ========================================
+   COMING SOON
+======================================== */
+
+.coming-soon {
+  width: 100%;
+  height: 100vh;
+
+  padding: 30px;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 190px;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
 }
 
-.month-selector label {
-  color: #374151;
-  font-size: 14px;
-  font-weight: 600;
+
+.coming-soon-icon {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #735cf5,
+      #4e37dc
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  box-shadow:
+    0 13px 32px
+    rgba(
+      91,
+      69,
+      226,
+      0.22
+    );
 }
 
-.month-selector input {
-  width: 100%;
-  padding: 10px 12px;
-  color: #1f2937;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+
+.coming-soon h2 {
+  margin:
+    18px
+    0
+    4px;
+
+  font-size: 26px;
+  font-weight: 750;
+
+  letter-spacing:
+    -0.7px;
+
+  color: #27283d;
 }
 
-.month-selector input:focus {
-  border-color: #2563eb;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+
+.coming-soon p {
+  max-width: 410px;
+
+  margin:
+    7px
+    0
+    21px;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  color: #898a9c;
 }
 
-.retry-button {
-  margin-bottom: 24px;
-  padding: 10px 16px;
-  color: #ffffff;
-  font-weight: 600;
-  background-color: #2563eb;
+
+.coming-soon button {
   border: none;
-  border-radius: 8px;
+
+  padding:
+    10px
+    18px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6851ed,
+      #5039dd
+    );
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 600;
+
   cursor: pointer;
+
+  box-shadow:
+    0 6px 17px
+    rgba(
+      84,
+      60,
+      218,
+      0.2
+    );
+
+  transition:
+    transform
+    0.2s ease,
+    box-shadow
+    0.2s ease;
 }
 
-.retry-button:hover {
-  background-color: #1d4ed8;
+
+.coming-soon button:hover {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 9px 22px
+    rgba(
+      84,
+      60,
+      218,
+      0.27
+    );
 }
 
-@media (max-width: 700px) {
-  .app-container {
-    padding: 24px 16px;
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (
+  max-width: 1300px
+) {
+
+  .chat-layout {
+    grid-template-columns:
+      250px
+      minmax(
+        460px,
+        1fr
+      )
+      320px;
   }
 
-  .dashboard-header {
-    flex-direction: column;
-    align-items: stretch;
-    margin-bottom: 24px;
+
+  .content-layout {
+    grid-template-columns:
+      250px
+      minmax(
+        0,
+        1fr
+      );
   }
 
-  .dashboard-heading h1 {
-    font-size: 28px;
+
+  .sidebar {
+    width: 250px;
+    min-width: 250px;
   }
 
-  .month-selector {
-    min-width: 0;
+}
+
+
+@media (
+  max-width: 1050px
+) {
+
+  /*
+   * 小一点的屏幕：
+   * Chat 隐藏右侧 Overview
+   */
+  .chat-layout {
+    grid-template-columns:
+      240px
+      minmax(
+        0,
+        1fr
+      );
   }
+
+
+  .content-layout {
+    grid-template-columns:
+      240px
+      minmax(
+        0,
+        1fr
+      );
+  }
+
+
+  .overview-column {
+    display: none;
+  }
+
+
+  .sidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .app-shell,
+  .chat-layout,
+  .content-layout {
+    display: block;
+  }
+
+
+  /*
+   * 当前手机版先隐藏 sidebar。
+   * 后面可以再做 hamburger menu。
+   */
+  .sidebar {
+    display: none;
+  }
+
+
+  .main-content {
+    width: 100%;
+    height: 100vh;
+  }
+
+
+  .overview-column {
+    display: none;
+  }
+
+
+  .coming-soon {
+    padding: 20px;
+  }
+
 }
