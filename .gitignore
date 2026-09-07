@@ -29,3 +29,12 @@ ai-service/__pycache__/
 ai-service/.venv/
 ai-service/venv/
 *.pyc
+
+node_modules/
+package-lock.json
+
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env

@@ -1,18 +1,19 @@
 package backend.service;
 
-import backend.dto.ExpenseRequest;
-import backend.dto.ExpenseResponse;
-import backend.entity.Expense;
-import backend.exception.ResourceNotFoundException;
-import backend.repository.ExpenseRepository;
-import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import backend.dto.ExpenseRequest;
+import backend.dto.ExpenseResponse;
+import backend.entity.Expense;
+import backend.exception.ResourceNotFoundException;
+import backend.repository.ExpenseRepository;
 
 @Service
 public class ExpenseService {
@@ -111,16 +112,31 @@ public class ExpenseService {
     }
 
     public List<ExpenseResponse> search(
-            String category,
-            LocalDate startDate,
-            LocalDate endDate
-    ) {
-        validateCategory(category);
+        String keyword,
+        LocalDate startDate,
+        LocalDate endDate
+) {
+    if (keyword == null || keyword.isBlank()) {
+        throw new IllegalArgumentException(
+                "Keyword must not be blank"
+        );
+    }
+
+    // 只填了一个日期：不允许
+    if ((startDate == null) != (endDate == null)) {
+        throw new IllegalArgumentException(
+                "Both startDate and endDate must be provided together"
+        );
+    }
+
+    // 两个日期都填写
+    if (startDate != null && endDate != null) {
+
         validateDateRange(startDate, endDate);
 
         return expenseRepository
-                .findByCategoryIgnoreCaseAndExpenseDateBetween(
-                        category.trim(),
+                .searchByKeywordAndDateRange(
+                        keyword.trim(),
                         startDate,
                         endDate
                 )
@@ -128,6 +144,14 @@ public class ExpenseService {
                 .map(this::toResponse)
                 .toList();
     }
+
+    // 两个日期都没填写
+    return expenseRepository
+            .searchByKeyword(keyword.trim())
+            .stream()
+            .map(this::toResponse)
+            .toList();
+}
 
     public List<ExpenseResponse> getMonthlyExpenses(
             int year,

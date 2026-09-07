@@ -11,7 +11,9 @@ import {
 import { formatCurrency } from "../utils/formatters";
 import "./CategoryBreakdown.css";
 
-function CategoryBreakdown({ categoryTotals }) {
+function CategoryBreakdown({
+  categoryTotals = {},
+}) {
   const chartData = Object.entries(categoryTotals)
     .map(([category, amount]) => ({
       category,
