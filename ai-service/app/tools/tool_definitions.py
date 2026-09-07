@@ -4,8 +4,10 @@ EXPENSE_TOOL_DEFINITIONS = [
         "function": {
             "name": "list_expenses",
             "description": (
-                "Get all expense records. "
-                "Use this when the user wants to see all expenses."
+                "Return individual expense records. "
+                "Use this only when the user asks to view, list, inspect, "
+                "or retrieve individual transactions. "
+                "Do not use this tool for totals or aggregate statistics."
             ),
             "parameters": {
                 "type": "object",
@@ -126,8 +128,9 @@ EXPENSE_TOOL_DEFINITIONS = [
         "function": {
             "name": "monthly_total",
             "description": (
-                "Get the total amount of money spent in a specific month. "
-                "Use this when the user asks how much they spent in a month."
+                "Return the total amount spent in a specific month. "
+                "Use this tool directly when the user asks how much they "
+                "spent in a month. Do not call list_expenses first."
             ),
             "parameters": {
                 "type": "object",

@@ -3,6 +3,7 @@ from app.services.llm_client import ask_llm
 from app.agent.finance_agent import run_finance_agent
 from app.schemas.chat import ChatRequest, ChatResponse
 from fastapi.middleware.cors import CORSMiddleware
+import time
 
 from app.tools.expense_tools import (
     list_expenses,
@@ -124,7 +125,13 @@ def test_agent(message: str):
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
+    start_time = time.perf_counter()
     result = run_finance_agent(request.message)
+    end_time = time.perf_counter()
+
+    latency_ms = (end_time - start_time) * 1000
+
+    print(f"Agent latency: {latency_ms:.2f} ms")
 
     return ChatResponse(
         response=result
